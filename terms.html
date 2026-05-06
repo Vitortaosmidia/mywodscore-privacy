@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Termos e Condições — MyWodScore</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f4f0;
+      --accent: #e8ff00;
+      --gray: #1a1a1a;
+      --muted: #666;
+      --border: #2a2a2a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .logo-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      padding: 5rem 2.5rem 3rem;
+      border-bottom: 1px solid var(--border);
+      max-width: 860px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(232,255,0,0.08);
+      border: 1px solid rgba(232,255,0,0.25);
+      padding: 0.3rem 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+    }
+
+    main {
+      max-width: 860px;
+      padding: 0 2.5rem 6rem;
+    }
+
+    section {
+      padding-top: 3.5rem;
+      border-top: 1px solid var(--border);
+      margin-top: 3.5rem;
+    }
+
+    section:first-child {
+      border-top: none;
+      margin-top: 0;
+    }
+
+    h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    h2::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    p {
+      color: #ccc;
+      margin-bottom: 1rem;
+      font-size: 0.975rem;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0.75rem 0 1rem;
+      padding: 0;
+    }
+
+    ul li {
+      color: #ccc;
+      font-size: 0.975rem;
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    ul li:last-child { border-bottom: none; }
+
+    ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    .highlight-box {
+      background: var(--gray);
+      border-left: 3px solid var(--accent);
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+      font-size: 0.95rem;
+      color: #ddd;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(232,255,0,0.3);
+      transition: border-color 0.2s;
+    }
+
+    a:hover { border-color: var(--accent); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer-date {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 600px) {
+      header, .hero, main, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <span class="logo">MyWodScore</span>
+    <span class="logo-sub">Terms &amp; Conditions</span>
+  </header>
+
+  <div class="hero">
+    <div class="tag">Documento Legal</div>
+    <h1>Termos e<br>Condições</h1>
+    <p class="meta">Última atualização: abril de 2026 &nbsp;·&nbsp; Versão 1.0</p>
+  </div>
+
+  <main>
+
+    <section>
+      <h2>1. Aceitação dos Termos</h2>
+      <p>Ao baixar ou utilizar o MyWodScore, você concorda com estes Termos e Condições. Caso não concorde com qualquer parte destes termos, não utilize o aplicativo.</p>
+    </section>
+
+    <section>
+      <h2>2. Descrição do Serviço</h2>
+      <p>O MyWodScore é um aplicativo de registro de treinos para CrossFit e modalidades similares. Oferece funcionalidades de timer, registro de personal records (PRs), histórico de treinos e calculadora de cargas.</p>
+    </section>
+
+    <section>
+      <h2>3. Conta e Dados</h2>
+      <p>O aplicativo não requer criação de conta. Todos os dados inseridos (treinos, PRs, configurações) são armazenados exclusivamente no seu dispositivo. A desinstalação do aplicativo apagará permanentemente todos os dados locais.</p>
+    </section>
+
+    <section>
+      <h2>4. Plano Gratuito e Premium</h2>
+      <p>O MyWodScore oferece um plano gratuito com acesso às funcionalidades principais. O plano Premium, disponível via assinatura mensal ou anual, desbloqueia funcionalidades adicionais, incluindo o MIX Timer completo e remoção de anúncios.</p>
+      <div class="highlight-box">
+        Preços e condições das assinaturas são exibidos no momento da compra e gerenciados pela App Store (iOS) ou Google Play (Android).
+      </div>
+      <ul>
+        <li>Período de teste gratuito de 7 dias disponível</li>
+        <li>Cancelamento a qualquer momento pelas configurações da loja</li>
+        <li>A cobrança ocorre ao fim do período de teste, caso não cancele antes</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. Propriedade Intelectual</h2>
+      <p>Todo o conteúdo do aplicativo, incluindo design, código, textos e ícones, é propriedade do desenvolvedor e protegido por lei de direitos autorais. Reprodução ou distribuição sem autorização expressa é proibida.</p>
+    </section>
+
+    <section>
+      <h2>6. Limitação de Responsabilidade</h2>
+      <p>O MyWodScore é fornecido "como está", sem garantias de qualquer natureza. O desenvolvedor não se responsabiliza por lesões, problemas de saúde ou quaisquer danos resultantes do uso do aplicativo.</p>
+      <div class="highlight-box">
+        Consulte sempre um profissional de educação física antes de iniciar ou alterar sua rotina de treinos.
+      </div>
+    </section>
+
+    <section>
+      <h2>7. Anúncios</h2>
+      <p>O plano gratuito pode exibir anúncios fornecidos por redes de publicidade de terceiros. Os anúncios são exibidos de forma não intrusiva e não implicam coleta de dados pessoais além do descrito em nossa Política de Privacidade.</p>
+    </section>
+
+    <section>
+      <h2>8. Alterações nos Termos</h2>
+      <p>Reservamos o direito de modificar estes termos a qualquer momento. Alterações significativas serão comunicadas dentro do aplicativo. O uso continuado após a publicação das alterações constitui aceitação dos termos atualizados.</p>
+    </section>
+
+    <section>
+      <h2>9. Lei Aplicável</h2>
+      <p>Estes Termos são regidos pelas leis da República Federativa do Brasil. O foro da comarca de Florianópolis, Santa Catarina, é eleito para dirimir quaisquer controvérsias decorrentes destes Termos.</p>
+    </section>
+
+    <section>
+      <h2>10. Contato</h2>
+      <p>Dúvidas sobre estes Termos:</p>
+      <div class="highlight-box">
+        <strong>MyWodScore</strong><br>
+        E-mail: <a href="mailto:oliveira.vitor.gt@gmail.com">oliveira.vitor.gt@gmail.com</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span class="footer-logo">MyWodScore</span>
+    <span class="footer-date">© 2026 MyWodScore · Todos os direitos reservados</span>
+  </footer>
+
+</body>
+</html>
