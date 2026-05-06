@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyWodScore — Track Every Rep. Own Every PR.</title>
+  <meta name="description" content="Timer, PR tracking, workout history and load calculator for CrossFit and functional training athletes.">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f4f0;
+      --accent: #e8ff00;
+      --gray: #1a1a1a;
+      --muted: #666;
+      --border: #2a2a2a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    /* HERO */
+    .hero {
+      padding: 7rem 2.5rem 5rem;
+      max-width: 1000px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(232,255,0,0.08);
+      border: 1px solid rgba(232,255,0,0.25);
+      padding: 0.3rem 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(3.5rem, 9vw, 7.5rem);
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    h1 span { color: var(--accent); }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: #aaa;
+      max-width: 520px;
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--accent);
+      color: var(--black);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.85rem 1.75rem;
+      transition: opacity 0.2s;
+    }
+
+    .btn-primary:hover { opacity: 0.85; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.85rem 1.75rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: var(--muted); color: var(--white); }
+
+    /* STATS */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stat {
+      padding: 2.5rem 2.5rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 3rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* FEATURES */
+    .section {
+      padding: 5rem 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      text-transform: uppercase;
+      line-height: 0.95;
+      margin-bottom: 3.5rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .feature-card {
+      background: var(--black);
+      padding: 2.5rem;
+    }
+
+    .feature-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .feature-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-desc {
+      font-size: 0.9rem;
+      color: #888;
+      line-height: 1.6;
+    }
+
+    /* TIMER MODES */
+    .modes-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+
+    .mode-card {
+      background: var(--black);
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .mode-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .mode-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* PRO */
+    .pro-section {
+      padding: 5rem 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+
+    .pro-list {
+      list-style: none;
+    }
+
+    .pro-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    .pro-list li:last-child { border-bottom: none; }
+
+    .pro-list li::before {
+      content: '→';
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .price-card {
+      background: var(--gray);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+    }
+
+    .price-badge {
+      display: inline-block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--accent);
+      color: var(--black);
+      padding: 0.2rem 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .price-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .price-amount {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 3rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .price-period {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .price-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    @media (max-width: 700px) {
+      nav, .hero, .section, .pro-section, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .stats { grid-template-columns: 1fr; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat:last-child { border-bottom: none; }
+      .features-grid { grid-template-columns: 1fr; }
+      .modes-grid { grid-template-columns: repeat(2, 1fr); }
+      .pro-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="logo">MyWodScore</span>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#pro">Pro</a>
+      <a href="support.html">Support</a>
+      <a href="index.html">Privacy</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="tag">Available on iOS &amp; Android</div>
+    <h1>Track every rep.<br><span>Own every PR.</span></h1>
+    <p class="hero-sub">Timer, personal records, workout history and load calculator — built for CrossFit and functional training athletes.</p>
+    <div class="cta-group">
+      <a href="https://apps.apple.com/app/id6766621300" class="btn-primary">
+        ↓ Download on App Store
+      </a>
+      <a href="support.html" class="btn-secondary">Support</a>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Timer modes</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">7</div>
+      <div class="stat-label">Languages supported</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Data sent to servers</div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="section" id="features">
+    <div class="section-label">What you get</div>
+    <div class="section-title">Everything you need.<br>Nothing you don't.</div>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-num">01</div>
+        <div class="feature-title">Smart Timer</div>
+        <div class="feature-desc">AMRAP, For Time, EMOM, Tabata and Mix — all in one place. Countdown, interval signals, notes after each WOD.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">02</div>
+        <div class="feature-title">PR Tracking</div>
+        <div class="feature-desc">Log and track personal records across weightlifting, powerlifting, gymnastics, cardio and benchmark WODs.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">03</div>
+        <div class="feature-title">Workout History</div>
+        <div class="feature-desc">Every completed WOD saved automatically with date, duration, type and notes. Searchable and organized by month.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">04</div>
+        <div class="feature-title">Load Calculator</div>
+        <div class="feature-desc">Instantly calculate percentages of your 1RM. Load your PR directly from your records for fast math at the box.</div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top:3rem;">Timer modes</div>
+    <div class="modes-grid">
+      <div class="mode-card">
+        <div class="mode-name">AMRAP</div>
+        <div class="mode-desc">As many rounds as possible</div>
+      </div>
+      <div class="mode-card">
+        <div class="mode-name">For Time</div>
+        <div class="mode-desc">As fast as possible</div>
+      </div>
+      <div class="mode-card">
+        <div class="mode-name">EMOM</div>
+        <div class="mode-desc">Every minute on the minute</div>
+      </div>
+      <div class="mode-card">
+        <div class="mode-name">Tabata</div>
+        <div class="mode-desc">Work / rest intervals</div>
+      </div>
+      <div class="mode-card">
+        <div class="mode-name">Mix</div>
+        <div class="mode-desc">Combine multiple timers</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRO -->
+  <div class="pro-section" id="pro">
+    <div class="section-label">Pro plan</div>
+    <div class="section-title">Unlock the full potential<br>of your training.</div>
+
+    <div class="pro-grid">
+      <ul class="pro-list">
+        <li>Mix Timer — combine multiple timers in one session</li>
+        <li>Export workouts &amp; PRs as CSV or JSON</li>
+        <li>Full backup and restore</li>
+        <li>Early access to new features</li>
+        <li>Remove ads</li>
+      </ul>
+
+      <div>
+        <div class="price-card" style="margin-bottom:1rem;">
+          <div class="price-badge">Best value</div>
+          <div class="price-title">Annual</div>
+          <div class="price-amount">$29.99</div>
+          <div class="price-period">per year — $2.50/mo</div>
+          <a href="https://apps.apple.com/app/id6766621300" class="btn-primary" style="width:100%;justify-content:center;">Get Pro</a>
+          <div class="price-note">7-day free trial · Cancel anytime</div>
+        </div>
+        <div class="price-card">
+          <div class="price-title">Monthly</div>
+          <div class="price-amount">$4.99</div>
+          <div class="price-period">per month</div>
+          <a href="https://apps.apple.com/app/id6766621300" class="btn-secondary" style="width:100%;justify-content:center;">Get Pro</a>
+          <div class="price-note">7-day free trial · Cancel anytime</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-logo">MyWodScore</span>
+    <div class="footer-links">
+      <a href="support.html">Support</a>
+      <a href="terms.html">Terms</a>
+      <a href="index.html">Privacy</a>
+      <a href="mailto:oliveira.vitor.gt@gmail.com">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
