@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidade — MyWodScore</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f4f0;
+      --accent: #e8ff00;
+      --gray: #1a1a1a;
+      --muted: #666;
+      --border: #2a2a2a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: 1.6rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .logo-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      padding: 5rem 2.5rem 3rem;
+      border-bottom: 1px solid var(--border);
+      max-width: 860px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(232,255,0,0.08);
+      border: 1px solid rgba(232,255,0,0.25);
+      padding: 0.3rem 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.875rem;
+      letter-spacing: 0.05em;
+    }
+
+    main {
+      max-width: 860px;
+      padding: 0 2.5rem 6rem;
+    }
+
+    section {
+      padding-top: 3.5rem;
+      border-top: 1px solid var(--border);
+      margin-top: 3.5rem;
+    }
+
+    section:first-child {
+      border-top: none;
+      margin-top: 0;
+    }
+
+    h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    h2::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    p {
+      color: #ccc;
+      margin-bottom: 1rem;
+      font-size: 0.975rem;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0.75rem 0 1rem;
+      padding: 0;
+    }
+
+    ul li {
+      color: #ccc;
+      font-size: 0.975rem;
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    ul li:last-child { border-bottom: none; }
+
+    ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    .highlight-box {
+      background: var(--gray);
+      border-left: 3px solid var(--accent);
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+      font-size: 0.95rem;
+      color: #ddd;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(232,255,0,0.3);
+      transition: border-color 0.2s;
+    }
+
+    a:hover { border-color: var(--accent); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .footer-date {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 600px) {
+      header, .hero, main, footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <span class="logo">MyWodScore</span>
+    <span class="logo-sub">Privacy Policy</span>
+  </header>
+
+  <div class="hero">
+    <div class="tag">Documento Legal</div>
+    <h1>Política de<br>Privacidade</h1>
+    <p class="meta">Última atualização: maio de 2025 &nbsp;·&nbsp; Versão 1.0</p>
+  </div>
+
+  <main>
+
+    <section>
+      <h2>1. Introdução</h2>
+      <p>O <strong>MyWodScore</strong> ("nós", "nosso") é um aplicativo de timer e registro de PRs (personal records) para treinos. Esta Política de Privacidade descreve como coletamos, usamos e protegemos as informações dos usuários que utilizam nosso aplicativo.</p>
+      <p>Ao utilizar o MyWodScore, você concorda com as práticas descritas neste documento.</p>
+    </section>
+
+    <section>
+      <h2>2. Informações que Coletamos</h2>
+      <p>O MyWodScore coleta apenas as informações estritamente necessárias para o funcionamento do aplicativo:</p>
+      <ul>
+        <li><strong>ID do usuário</strong> — identificador único gerado pelo sistema para associar seus registros e configurações à sua conta.</li>
+        <li><strong>ID do dispositivo</strong> — identificador do dispositivo utilizado para garantir o correto funcionamento do app e sincronização local.</li>
+      </ul>
+      <div class="highlight-box">
+        Não coletamos nome, e-mail, localização, dados de saúde, contatos, histórico de navegação, dados financeiros ou qualquer outra informação pessoal além das listadas acima.
+      </div>
+    </section>
+
+    <section>
+      <h2>3. Finalidade do Uso dos Dados</h2>
+      <p>Os dados coletados são utilizados exclusivamente para:</p>
+      <ul>
+        <li>Garantir o funcionamento correto das funcionalidades do app (timer, registro de PRs)</li>
+        <li>Identificar a sessão do usuário para manter preferências e registros salvos</li>
+        <li>Assegurar a integridade e continuidade do uso entre sessões no mesmo dispositivo</li>
+      </ul>
+      <p>Não utilizamos os dados para fins de publicidade, marketing ou compartilhamento com terceiros.</p>
+    </section>
+
+    <section>
+      <h2>4. Compartilhamento de Dados</h2>
+      <p>Não vendemos, alugamos ou compartilhamos suas informações com terceiros, exceto quando exigido por lei ou necessário para o funcionamento técnico do aplicativo (ex.: serviços de infraestrutura da Apple).</p>
+    </section>
+
+    <section>
+      <h2>5. Retenção de Dados</h2>
+      <p>Os dados são armazenados localmente no dispositivo ou por período necessário para o funcionamento do app. Ao desinstalar o aplicativo, os dados locais são removidos automaticamente.</p>
+    </section>
+
+    <section>
+      <h2>6. Segurança</h2>
+      <p>Adotamos medidas técnicas razoáveis para proteger as informações dos usuários contra acesso não autorizado, alteração ou destruição. Como coletamos um volume mínimo de dados, o risco inerente é reduzido.</p>
+    </section>
+
+    <section>
+      <h2>7. Privacidade de Menores</h2>
+      <p>O MyWodScore não é direcionado a crianças menores de 13 anos. Não coletamos intencionalmente informações de menores. Caso identifique uso indevido, entre em contato conosco.</p>
+    </section>
+
+    <section>
+      <h2>8. Seus Direitos</h2>
+      <p>Você tem o direito de:</p>
+      <ul>
+        <li>Solicitar informações sobre os dados que possuímos associados ao seu ID</li>
+        <li>Solicitar a exclusão dos seus dados</li>
+        <li>Desinstalar o aplicativo a qualquer momento, removendo os dados locais</li>
+      </ul>
+      <p>Para exercer esses direitos, entre em contato pelo e-mail abaixo.</p>
+    </section>
+
+    <section>
+      <h2>9. Alterações nesta Política</h2>
+      <p>Podemos atualizar esta Política de Privacidade periodicamente. Notificaremos os usuários sobre mudanças significativas por meio de atualização da data no topo deste documento ou por aviso dentro do aplicativo.</p>
+    </section>
+
+    <section>
+      <h2>10. Contato</h2>
+      <p>Em caso de dúvidas, solicitações ou reclamações relacionadas à privacidade, entre em contato:</p>
+      <div class="highlight-box">
+        <strong>MyWodScore</strong><br>
+        E-mail: <a href="mailto:contato@mywodscore.com">contato@mywodscore.com</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span class="footer-logo">MyWodScore</span>
+    <span class="footer-date">© 2025 MyWodScore · Todos os direitos reservados</span>
+  </footer>
+
+</body>
+</html>
